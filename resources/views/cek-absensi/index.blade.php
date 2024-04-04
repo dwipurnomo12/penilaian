@@ -11,13 +11,7 @@
                                 <h4>Data Absensi</h4>
                             </div>
                             <div class="col-6">
-                                @if ($tahun_ajaran_id)
-                                    <a href="{{ route('cetakLaporanAbsensi', ['tahun_ajaran_id' => $tahun_ajaran_id]) }}"
-                                        class="btn btn-danger float-right"><i class="fas fa-print"></i> Print Laporan</a>
-                                @else
-                                    <button class="btn btn-danger float-right disabled" disabled><i class="fas fa-info"></i>
-                                        Pilih Tahun Ajaran Untuk Print Data </button>
-                                @endif
+                                <a href="/cek-absensi/cetak-absensi" class="btn btn-danger float-right">Cetak Laporan</a>
                             </div>
                         </div>
                     </div>
@@ -29,39 +23,6 @@
                                 </div>
                             </div>
                         @endif
-
-                        <div class="form-group">
-                            <form action="/laporan-absensi/filter-data" method="GET">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="text">Filter Berdasarkan Tahun Ajaran</label>
-                                            <div class="input-group">
-                                                <select class="form-control" aria-label="Default select example"
-                                                    name="tahun_ajaran_id">
-                                                    <option value="">Pilih Tahun Ajaran</option>
-                                                    @foreach ($tahunAjarans as $tahun_ajaran)
-                                                        <option value="{{ $tahun_ajaran->id }}"
-                                                            {{ request('tahun_ajaran_id') == $tahun_ajaran->id ? 'selected' : '' }}>
-                                                            {{ $tahun_ajaran->tahun_ajaran }} -
-                                                            {{ $tahun_ajaran->semester }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                                <div class="ml-2 mt-1">
-                                                    <button type="submit" class="btn btn-sm btn-primary"><i
-                                                            class="fa-solid fa-magnifying-glass"></i> Filter</button>
-
-                                                    <a href="/laporan-absensi/" class="btn btn-sm btn-danger ml-1"
-                                                        id="refresh_btn"><i class="fa fa-solid fa-rotate-right"></i>
-                                                        Refresh</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
 
                         <div class="table-responsive p-2">
                             <table id="table_id" class="table table-bordered table-hover table-striped table-condensed">

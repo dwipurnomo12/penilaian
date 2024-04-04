@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Guru;
+use App\Models\Kelas;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -24,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('index', [
+            'kelases'   => Kelas::count(),
+            'siswas'    => Siswa::count(),
+            'gurus'     => Guru::count()
+        ]);
     }
 }

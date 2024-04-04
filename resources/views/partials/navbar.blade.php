@@ -1,6 +1,6 @@
 <header class="header">
     <div class="page-brand">
-        <a class="link" href="index.html">
+        <a class="link" href="/">
             <span class="brand">SI NILAI</span>
             <span class="brand-mini">SN</span>
         </a>
